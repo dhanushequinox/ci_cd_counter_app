@@ -16,7 +16,7 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.13.4'   # Use Flutter version that bundles Dart SDK 3.5.4+
+          flutter-version: '3.13.0'
 
       - name: Install dependencies
         run: flutter pub get
@@ -29,5 +29,5 @@ jobs:
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccountToken: "${{ secrets.FIREBASE_TOKEN }}"
-          projectId: "ci-cd-counter-app"  # Replace with your Firebase project ID
           channelId: live
+          projectId: ci-cd-counter-app
