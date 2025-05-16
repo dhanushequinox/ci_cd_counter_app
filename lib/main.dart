@@ -120,7 +120,7 @@ class _CounterPageState extends State<CounterPage> with SingleTickerProviderStat
               mainAxisSize: MainAxisSize.min,
               children: [
                 const Text(
-                  'Count',
+                  'myrrrr count for',
                   style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.w600,
@@ -149,7 +149,7 @@ class _CounterPageState extends State<CounterPage> with SingleTickerProviderStat
             buildButton(
               icon: Icons.add,
               onPressed: _increment,
-              color: Colors.deepPurple,
+              color: Colors.black,
               tooltip: 'Increment',
             ),
           ],
