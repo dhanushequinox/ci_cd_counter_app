@@ -10,6 +10,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'CI/CD Demo',
       home: const CounterPage(),
+      theme: ThemeData(
+        primarySwatch: Colors.deepPurple,
+      ),
     );
   }
 }
@@ -30,14 +33,37 @@ class _CounterPageState extends State<CounterPage> {
     });
   }
 
+  void _decrement() {
+    setState(() {
+      if (_count > 0) _count--;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("CI/CD Counter App")),
-      body: Center(child: Text('Count: $_count', style: const TextStyle(fontSize: 32))),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _increment,
-        child: const Icon(Icons.add),
+      body: Center(
+        child: Text(
+          'Count: $_count',
+          style: const TextStyle(fontSize: 40, color: Colors.deepPurple),
+        ),
+      ),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            heroTag: 'decrement',
+            onPressed: _decrement,
+            child: const Icon(Icons.remove),
+          ),
+          const SizedBox(width: 16),
+          FloatingActionButton(
+            heroTag: 'increment',
+            onPressed: _increment,
+            child: const Icon(Icons.add),
+          ),
+        ],
       ),
     );
   }
