@@ -24,7 +24,8 @@ class CounterPage extends StatefulWidget {
   State<CounterPage> createState() => _CounterPageState();
 }
 
-class _CounterPageState extends State<CounterPage> with SingleTickerProviderStateMixin {
+class _CounterPageState extends State<CounterPage>
+    with SingleTickerProviderStateMixin {
   int _count = 0;
 
   // For smooth count text animation
@@ -34,10 +35,10 @@ class _CounterPageState extends State<CounterPage> with SingleTickerProviderStat
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 300));
-    _animation = Tween<double>(begin: 1, end: 1.2).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeOut)
-    );
+    _controller = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 300));
+    _animation = Tween<double>(begin: 1, end: 1.2)
+        .animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) _controller.reverse();
     });
@@ -85,7 +86,11 @@ class _CounterPageState extends State<CounterPage> with SingleTickerProviderStat
     );
   }
 
-  Widget buildButton({required IconData icon, required VoidCallback onPressed, required Color color, String? tooltip}) {
+  Widget buildButton(
+      {required IconData icon,
+      required VoidCallback onPressed,
+      required Color color,
+      String? tooltip}) {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
@@ -112,7 +117,8 @@ class _CounterPageState extends State<CounterPage> with SingleTickerProviderStat
       body: Center(
         child: Card(
           elevation: 12,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
           margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 40),
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 40),
@@ -120,7 +126,7 @@ class _CounterPageState extends State<CounterPage> with SingleTickerProviderStat
               mainAxisSize: MainAxisSize.min,
               children: [
                 const Text(
-                  'myrrrr count for',
+                  'count for ci cd',
                   style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.w600,
@@ -149,7 +155,7 @@ class _CounterPageState extends State<CounterPage> with SingleTickerProviderStat
             buildButton(
               icon: Icons.add,
               onPressed: _increment,
-              color: Colors.black,
+              color: Colors.yellow,
               tooltip: 'Increment',
             ),
           ],
